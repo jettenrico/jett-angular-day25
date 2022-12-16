@@ -11,7 +11,7 @@
 
 <!-- <app-todo></app-todo> -->
 
-<!-- <app-pemesanan></app-pemesanan> -->
+<app-pemesanan></app-pemesanan>
 
 <!-- <div class="container">
     <button>Get Products</button>
@@ -22,11 +22,20 @@
     </ul>
 </div> -->
 
-<div class="container">
+<!-- <div class="container">
+    <div class="row">
+        <div *ngFor="let post of posts" class="col-md-3">
+            <div class="card"></div>
+            <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{post.body}}</p>
+            </div>
+        </div>
+    </div>
     <ul>
         <li *ngFor="let post of posts">
             <h1>{{post.title}}</h1>
             <p>{{post.body}}</p>
         </li>
     </ul>
-</div> 
+</div>  -->
