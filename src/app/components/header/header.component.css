@@ -1,0 +1,26 @@
+.menu-container{
+    background-color: darkslategray;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.menu{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+.links{
+    display: flex;
+    justify-content: flex-end;
+}
+.links a{
+    color: white;
+}
+.contact{
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.links a:hover{
+    color: lightsalmon;   
+}

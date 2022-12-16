@@ -1,0 +1,41 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h2>Tasks Work</h2>
+                    </div>
+                    <div class="form-group mb-2">
+                        <input [(ngModel)]="inputTWorks" type="text" class="form-control">
+                    </div>
+                    <button (click)="addTasks()" class="btn btn-primary">Tambah Tugas</button>
+                    <!-- <button (click)="removeTasks()" class="btn btn-danger">Hapus Tugas Terbaru</button> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tasks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="tWorks">
+                    <ng-template ngFor let-works [ngForOf] = "tWorks" let-i = "index">
+                        <tr>
+                            <td>
+                                {{works}}
+                            </td>
+                            <td>
+                                <button (click)="removeTaskIndex(i)" class="btn btn-danger btn-sm">Hapus</button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+.container{
+    background-color: violet;
+    justify-content: inherit;
+    display: flex;
+    margin: 50px auto;
+    height: 80vh;
+    width: 330px;
+    border-radius: 15px;
+}
+.contentkalkulator{
+    margin: 0 auto
+}
+.header, .luastanah, .luasbangunan, .njoptanah, .njopbangunan, .btnhitung{
+    margin: 18px 0;
+}
+.hitung, #logout{
+    color: white;
+    border: none;
+    width: 90px;
+    height: 40px;
+    margin: 0 5px;
+}
+.hitung{
+    background-color: #0083FC;
+}
+#logout{
+    background-color: red;
+}

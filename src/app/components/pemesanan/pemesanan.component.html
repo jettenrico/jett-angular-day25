@@ -1,0 +1,104 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="card-title mb-3">
+                        <h2>Menu App</h2>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="form-label">Makanan/Minuman</label>
+                        <input [(ngModel)]="inppesanan.nama" type="text" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="form-label">Harga</label>
+                        <input [(ngModel)]="inppesanan.harga" type="number" class="form-control">
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="form-label">Qty</label>
+                        <input [(ngModel)]="inppesanan.qty" type="number" class="form-control">
+                    </div>
+                    <button (click)="addPesanan()" class="btn btn-primary">Tambah Pesanan</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h2>Menu</h2>
+                    </div>
+                    <table *ngIf="lspesanan.length > 0;else emptyMenu" class="table">
+                        <thead>
+                            <tr>
+                                <th>Pesanan</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Sub Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-template ngFor let-orders [ngForOf] = "lspesanan" let-i = "index">
+                                <tr>
+                                    <td>{{orders.nama}}</td>
+                                    <td>{{orders.harga}}</td>
+                                    <td>{{orders.qty}}</td>
+                                    <td>{{orders.subtotal}}</td>
+                                    <td><button (click)="removePesananIndex(i)" class="btn btn-danger btn-sm">Hapus</button>
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </tbody>
+                        <tfoot>
+                            <h5 class="mt-2">Pajak PPN : 11%</h5>
+                            <h5>Harga : {{total | currency:'IDR'}}</h5>
+                            <h5>Grand Total : <strong>{{total - (total * pajak) | currency:'IDR' }}</strong></h5>
+                        </tfoot>
+                    </table>
+                    <ng-template #emptyMenu>
+                        <div>
+                            <div class="alert alert-warning mt-2 mb-2"
+                                role="alert">
+                                Pesanan Masih Kosong, Silahkan Order Dahulu
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+            <div *ngIf="lspesanan.length >0" class="card shadow mt-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>Uang: </h5>
+                        </div>
+                        <div class="col-md-4">   
+                            <input [(ngModel)]="pembayaran" type="text" name="" id="">
+                        </div>
+                    </div>
+                    <!-- <div class="row mt-3">
+                        <div class="col-md-4">
+                            <h5>Kembalian: </h5>
+                        </div>
+                        <div class="col-md-4">   
+                            <h5>{{kembalian| currency:"IDR"}}</h5>
+                        </div>
+                    </div> -->
+                    <button (click)="bayarPesanan()" class="btn btn-primary mt-3 mb-3">Bayar</button>
+                    <div>
+                        <div *ngIf="isCukup == true; else bayar" class="alert alert-warning mt-2 mb-2"
+                            role="alert">
+                            {{response}}, Kembalian {{kembalian|currency:"IDR"}}
+                        </div>
+                        <ng-template #bayar>
+                            <div class="alert alert-warning mt-2 mb-2"
+                            role="alert">
+                            {{response? response :'Pesanan Masih Kosong, Silahkan Order Dahulu!'}}
+                        </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
